@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>ExchangeTU</title>
+    <!--/tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="icon" href="images/favicon.png" type="image/png" sizes="18x12" />
+    <meta name="keywords" content="website" />
+    <script>
+      addEventListener(
+        "load",
+        function () {
+          setTimeout(hideURLbar, 0);
+        },
+        false
+      );
+
+      function hideURLbar() {
+        window.scrollTo(0, 1);
+      }
+    </script>
+    <!--//tags -->
+    <link
+      href="/css/bootstrap.css"
+      rel="stylesheet"
+      type="text/css"
+      media="all"
+    />
+    <link href="/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="/css/font-awesome.css" rel="stylesheet" />
+    <!--pop-up-box-->
+    <link
+      href="/css/popuo-box.css"
+      rel="stylesheet"
+      type="text/css"
+      media="all"
+    />
+    <!--//pop-up-box-->
+    <!-- price range -->
+    <link rel="stylesheet" type="text/css" href="/css/jquery-ui1.css" />
+    <!-- flexslider -->
+    <link
+      rel="stylesheet"
+      href="/css/flexslider.css"
+      type="text/css"
+      media="screen"
+    />
+    <!-- fonts -->
+    <link
+      href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800"
+      rel="stylesheet"
+    />
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="http://code.jquery.com/jquery-3.5.1.js"></script>
+  </head>
+
+  <body>
+    <%- include('partials/navbar.ejs') %>
+    
+    <div class="success-alert hide">
+      <span class="fas fa-exclamation-circle"></span>
+      <span class="alert-msg">Product Wishlisted!</span>
+      <span class="alert-close-btn">
+        <span class="fas fa-times"></span>
+      </span>
+    </div>
+
+    <!-- Modal1 -->
+    <div class="modal fade" id="myModal1" tabindex="-1" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">
+              &times;
+            </button>
+          </div>
+          <div class="modal-body modal-body-sub_agile">
+            <div class="main-mailposi">
+              <span class="fa fa-envelope-o" aria-hidden="true"></span>
+            </div>
+            <div class="modal_body_left modal_body_left1">
+              <h3 class="agileinfo_sign">Sign In</h3>
+              <p>
+                Sign In now, Let's start your Grocery Shopping. Don't have an
+                account?
+                <a href="#" data-toggle="modal" data-target="#myModal2">
+                  Sign Up Now</a
+                >
+              </p>
+              <form action="#" method="post">
+                <div class="styled-input agile-styled-input-top">
+                  <input
+                    type="text"
+                    placeholder="User Name"
+                    name="Name"
+                    required=""
+                  />
+                </div>
+                <div class="styled-input">
+                  <input
+                    type="password"
+                    placeholder="Password"
+                    name="password"
+                    required=""
+                  />
+                </div>
+                <input type="submit" value="Sign In" />
+              </form>
+              <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+        <!-- //Modal content-->
+      </div>
+    </div>
+    <!-- //Modal1 -->
+    <!-- //signin Model -->
+    <!-- signup Model -->
+    <!-- Modal2 -->
+    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">
+              &times;
+            </button>
+          </div>
+          <div class="modal-body modal-body-sub_agile">
+            <div class="main-mailposi">
+              <span class="fa fa-envelope-o" aria-hidden="true"></span>
+            </div>
+            <div class="modal_body_left modal_body_left1">
+              <h3 class="agileinfo_sign">Sign Up</h3>
+              <p>Let's set up your Account.</p>
+              <form action="#" method="post">
+                <div class="styled-input agile-styled-input-top">
+                  <input
+                    type="text"
+                    placeholder="Name"
+                    name="Name"
+                    required=""
+                  />
+                </div>
+                <div class="styled-input">
+                  <input
+                    type="email"
+                    placeholder="E-mail"
+                    name="Email"
+                    required=""
+                  />
+                </div>
+                <div class="styled-input">
+                  <input
+                    type="password"
+                    placeholder="Password"
+                    name="password"
+                    id="password1"
+                    required=""
+                  />
+                </div>
+                <div class="styled-input">
+                  <input
+                    type="password"
+                    placeholder="Confirm Password"
+                    name="Confirm Password"
+                    id="password2"
+                    required=""
+                  />
+                </div>
+                <input type="submit" value="Sign Up" />
+              </form>
+              <p>
+                <a href="#">By clicking register, I agree to your terms</a>
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- //Modal content-->
+      </div>
+    </div>
+    <!-- //Modal2 -->
+    <!-- page -->
+    <div class="services-breadcrumb">
+      <div class="agile_inner_breadcrumb">
+        <div class="container">
+          <ul class="w3_short">
+            <li>
+              <a href="/">Home</a>
+              <i>|</i>
+            </li>
+            <li>Product Page</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- //page -->
+    <!-- Single Page -->
+    <div class="banner-bootom-w3-agileits">
+      <div class="container">
+        <!-- tittle heading -->
+        <h3 class="tittle-w3l">
+          Product Page
+          <span class="heading-style">
+            <i></i>
+            <i></i>
+            <i></i>
+          </span>
+        </h3>
+        <!-- //tittle heading -->
+        <div class="col-md-5 single-right-left">
+          <div class="grid images_3_of_2">
+            <div class="flexslider">
+              <ul class="slides">
+                <li data-thumb=<%= `/img/deals/${deal.titleImg}`%>>
+                  <div class="thumb-image">
+                    <img
+                      src=<%= `/img/deals/${deal.titleImg}`%>
+                      data-imagezoom="true"
+                      class="img-responsive"
+                      alt=""
+                    />
+                  </div>
+                </li>
+                <li data-thumb=<%= `/img/deals/${deal.titleImg}`%>>
+                  <div class="thumb-image">
+                    <img
+                      src=<%= `/img/deals/${deal.titleImg}`%>
+                      data-imagezoom="true"
+                      class="img-responsive"
+                      alt=""
+                    />
+                  </div>
+                </li>
+                <li data-thumb=<%= `/img/deals/${deal.titleImg}`%>>
+                  <div class="thumb-image">
+                    <img
+                      src=<%= `/img/deals/${deal.titleImg}`%>
+                      data-imagezoom="true"
+                      class="img-responsive"
+                      alt=""
+                    />
+                  </div>
+                </li>
+              </ul>
+              <div class="clearfix"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-7 single-right-left simpleCart_shelfItem">
+          <h3><%= deal.dealName%></h3>
+          
+          <p>
+            <span class="item_price">₹<%= deal.dealPrice%></span>
+            <del>₹<%= deal.mrp%></del>
+      </p>
+      <% if(user) { %>
+      <p><strong>Seller's Information</strong></p>
+      <p>
+        <li><%= seller.name%></li>
+        <li><%= seller.email%></li>
+        <li><%= seller.phoneNo%></li>
+        <li>Hostel <%= deal.hostelName%></li>
+        <li><%= deal.duration%> years</li>
+        <li><%= deal.description%></li>
+      </p>
+      <% } else { %>
+        <p>
+          <a href="/login">Login</a> or <a href="/signup">Signup</a> to get Seller Information!
+        </p>
+      <% }%>
+      
+          <div class="occasion-cart">
+            <% if(user) {%>
+            <div
+              class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out"
+            >
+              <form action="#" method="post">
+                <fieldset>
+                  <input type="hidden" name="cmd" value="_cart" />
+                  <input type="hidden" name="add" value="1" />
+                  <input type="hidden" name="business" value=" " />
+                  <input
+                    type="hidden"
+                    name="item_name"
+                    value="Zeeba Premium Basmati Rice - 5 KG"
+                  />
+                  <input type="hidden" name="amount" value="950.00" />
+                  <input type="hidden" name="discount_amount" value="1.00" />
+                  <input type="hidden" name="currency_code" value="USD" />
+                  <input type="hidden" name="return" value=" " />
+                  <input type="hidden" name="cancel_return" value=" " />
+                  <input
+                    id="addToWishlist"
+                    type="submit"
+                    name="submit"
+                    value="Add to wishlist"
+                    class="button"
+                  />
+                </fieldset>
+              </form>
+            </div>
+            <% } else {%>
+              <a href="/signup">
+              <div
+              class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out"
+            >
+                  <input
+                    id="addToWishlistSignup"
+                    type="submit"
+                    name="submit"
+                    value="Add to wishlist"
+                    class="button"
+                  />
+            </div>
+          </a>
+              <% } %>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+    <!-- //Single Page -->
+    <!-- special offers -->
+    <div class="featured-section" id="projects">
+      <div class="container">
+        <!-- tittle heading -->
+        <h3 class="tittle-w3l">
+          Add More
+          <span class="heading-style">
+            <i></i>
+            <i></i>
+            <i></i>
+          </span>
+        </h3>
+        <!-- //tittle heading -->
+        <div class="featured-section" id="projects">
+			<div class="container">
+			  <div class="content-bottom-in">
+				<ul id="flexiselDemo1">
+				  <li>
+					<div class="w3l-specilamk">
+					  <div class="speioffer-agile">
+						<a href="/single">
+						  <img src="/images/drafter1.jpg" alt="" />
+						</a>
+					  </div>
+					  <div class="product-name-w3l">
+						<h4>
+						  <a href="/single">Drafter</a>
+						</h4>
+						<div
+						  class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out"
+						>
+						  <form action="#" method="post">
+							<fieldset>
+							  <input type="hidden" name="cmd" value="_wishlist" />
+							  <input type="hidden" name="add" value="1" />
+							  <input type="hidden" name="business" value=" " />
+							  <input type="hidden" name="item_name" value="Drafter" />
+							  <input type="hidden" name="amount" value="220.00" />
+							  <input
+								type="submit"
+								name="submit"
+								value="Add to wishlist"
+								class="button"
+							  />
+							</fieldset>
+						  </form>
+						</div>
+					  </div>
+					</div>
+				  </li>
+				  <li>
+					<div class="w3l-specilamk">
+					  <div class="speioffer-agile">
+						<a href="/single">
+						  <img src="/images/cycle7.JPG" alt="" />
+						</a>
+					  </div>
+					  <div class="product-name-w3l">
+						<h4>
+						  <a href="/single">Cycle</a>
+						</h4>
+						<div
+						  class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out"
+						>
+						  <form action="#" method="post">
+							<fieldset>
+							  <input type="hidden" name="cmd" value="_wishlist" />
+							  <input type="hidden" name="add" value="1" />
+							  <input type="hidden" name="business" value=" " />
+							  <input type="hidden" name="item_name" value="cycle" />
+							  <input type="hidden" name="amount" value="99.00" />
+							  <input
+								type="submit"
+								name="submit"
+								value="Add to wishlist"
+								class="button"
+							  />
+							</fieldset>
+						  </form>
+						</div>
+            </div>
+					</div>
+				  </li>
+				  <li>
+					<div class="w3l-specilamk">
+					  <div class="speioffer-agile">
+						<a href="/single">
+						  <img src="/images/labcoat1.jpg" alt="" />
+						</a>
+					  </div>
+					  <div class="product-name-w3l">
+						<h4>
+						  <a href="/single">Labcoat</a>
+						</h4>
+						<div
+						  class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out"
+						>
+						  <form action="#" method="post">
+							<fieldset>
+							  <input type="hidden" name="cmd" value="_wishlist" />
+							  <input type="hidden" name="add" value="1" />
+							  <input type="hidden" name="business" value=" " />
+							  <input type="hidden" name="item_name" value="labcoat" />
+							  <input type="hidden" name="amount" value="69.00" />
+							  <input
+								type="submit"
+								name="submit"
+								value="Add to wishlist"
+								class="button"
+							  />
+							</fieldset>
+						  </form>
+						</div>
+					  </div>
+					</div>
+				  </li>
+				  <li>
+					<div class="w3l-specilamk">
+					  <div class="speioffer-agile">
+						<a href="/single2">
+						  <img src="/images/cooler1.jpg" alt="" />
+						</a>
+					  </div>
+					  <div class="product-name-w3l">
+						<h4>
+						  <a href="/single2">Cooler</a>
+						</h4>
+						<div
+						  class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out"
+						>
+						  <form action="#" method="post">
+							<fieldset>
+							  <input type="hidden" name="cmd" value="_wishlist" />
+							  <input type="hidden" name="add" value="1" />
+							  <input type="hidden" name="business" value=" " />
+							  <input type="hidden" name="item_name" value="cooler" />
+							  <input type="hidden" name="amount" value="187.00" />
+							  <input
+								type="submit"
+								name="submit"
+								value="Add to wishlist"
+								class="button"
+							  />
+							</fieldset>
+						  </form>
+						</div>
+					  </div>
+					</div>
+				  </li>
+				  <li></li>
+				  <li>
+					<div class="w3l-specilamk">
+					  <div class="speioffer-agile">
+						<a href="/single2">
+						  <img src="/images/mattress1.jpg" alt="" />
+						</a>
+					  </div>
+					  <div class="product-name-w3l">
+						<h4>
+						  <a href="/single2">Mattress</a>
+						</h4>
+						<div
+						  class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out"
+						>
+						  <form action="#" method="post">
+							<fieldset>
+							  <input type="hidden" name="cmd" value="_wishlist" />
+							  <input type="hidden" name="add" value="1" />
+							  <input type="hidden" name="business" value=" " />
+							  <input
+								type="hidden"
+								name="item_name"
+								value="Mattress
+							  "
+							  />
+							  <input type="hidden" name="amount" value="121.60" />
+							  <input
+								type="submit"
+								name="submit"
+								value="Add to wishlist"
+								class="button"
+							  />
+							</fieldset>
+						  </form>
+						</div>
+					  </div>
+					</div>
+				  </li>
+				  <li></li>
+				  <li></li>
+				</ul>
+			  </div>
+			</div>
+		  </div>
+    <!-- //special offers -->
+
+    <!-- //footer -->
+
+    <!-- js-files -->
+    <!-- jquery -->
+    <!-- <script src="/js/likedDeal.js"></script> -->
+    <script src="/js/jquery-2.1.4.min.js"></script>
+    <!-- //jquery -->
+
+    <script
+    defer
+    src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"
+  ></script>
+      <% if(user) { %>
+      <script>
+        var test = '<%- user._id %>';
+        // console.log(test);
+        const passvalueliked = async (username, email, password, passwordConfirm) => {
+  const hideAlert = () => {
+    const el = document.querySelector(".alerts");
+    if (el) {
+      el.parentElement.removeChild(el);
+    }
+  };
+  const showAlert = (type, msg) => {
+    hideAlert();
+    const markup = `<div class="alerts alert--${type}">${msg}</div>`;
+    document.querySelector("body").insertAdjacentHTML("afterbegin", markup);
+    window.setTimeout(hideAlert, 5000);
+  };
+  try {
+    // await axios({
+    //   method: "DELETE",
+    //   url: "/api/v1/users/signup",
+    //   data: {
+    //     email,
+    //   },
+    // });
+    var full_url = window.location.pathname;
+    var url_array = full_url.split("/");
+    var deal = url_array[url_array.length - 3];
+    console.log(deal);
+    // var user = url_array[url_array.length - 1];
+    // console.log(user);
+    const result = await axios({
+      method: "POST",
+      url: "/api/v1/likedDeal",
+      data: {
+        deal,
+        user: test,
+      },
+    });
+    if (result.data.status === "success") {
+      // alert("sign up successful");
+      showAlert("success", "Product Wishlisted!");
+      window.setTimeout(() => {
+        location.assign("/wishlist");
+      }, 2000);
+    }
+  } catch (err) {
+    showAlert("error", "Something went wrong. Please try again later");
+  }
+};
+document.getElementById("addToWishlist").addEventListener("click", (e) => {
+  e.preventDefault();
+  passvalueliked();
+});
+      </script>
+      <% } %>
+
+      <script>
+        $('#addToWishlist').click(function(){
+          $('.success-alert').removeClass("hide");
+          $('.success-alert').addClass("show");
+          setTimeout(function(){
+            $('.success-alert').addClass("hide");
+            $('.success-alert').removeClass("show");
+          }, 5000);
+        });
+        $('.alert-close-btn').click(function(){
+          $('.success-alert').addClass("hide");
+          $('.success-alert').removeClass("show");
+        });
+      </script>
+
+    <!-- popup modal (for signin & signup)-->
+    <script src="/js/jquery.magnific-popup.js"></script>
+    <script>
+      $(document).ready(function () {
+        $(".popup-with-zoom-anim").magnificPopup({
+          type: "inline",
+          fixedContentPos: false,
+          fixedBgPos: true,
+          overflowY: "auto",
+          closeBtnInside: true,
+          preloader: false,
+          midClick: true,
+          removalDelay: 300,
+          mainClass: "my-mfp-zoom-in",
+        });
+      });
+    </script>
+    <!-- Large modal -->
+    <!-- <script>
+		$('#').modal('show');
+	</script> -->
+    <!-- //popup modal (for signin & signup)-->
+
+    <!-- cart-js -->
+    <script src="/js/minicart.js"></script>
+    <script>
+      paypalm.minicartk.render(); //use only unique class names other than paypal1.minicart1.Also Replace same class name in css and minicart.min.js
+
+      paypalm.minicartk.cart.on("checkout", function (evt) {
+        var items = this.items(),
+          len = items.length,
+          total = 0,
+          i;
+
+        // Count the number of each item in the cart
+        for (i = 0; i < len; i++) {
+          total += items[i].get("quantity");
+        }
+
+        if (total < 3) {
+          alert(
+            "The minimum order quantity is 3. Please add more to your shopping cart before checking out"
+          );
+          evt.preventDefault();
+        }
+      });
+    </script>
+    <!-- //cart-js -->
+
+    <!-- password-script -->
+    <script>
+      window.onload = function () {
+        document.getElementById("password1").onchange = validatePassword;
+        document.getElementById("password2").onchange = validatePassword;
+      };
+
+      function validatePassword() {
+        var pass2 = document.getElementById("password2").value;
+        var pass1 = document.getElementById("password1").value;
+        if (pass1 != pass2)
+          document
+            .getElementById("password2")
+            .setCustomValidity("Passwords Don't Match");
+        else document.getElementById("password2").setCustomValidity("");
+        //empty string means no validation error
+      }
+    </script>
+    <!-- //password-script -->
+
+    <!-- smoothscroll -->
+    <script src="/js/SmoothScroll.min.js"></script>
+    <!-- //smoothscroll -->
+
+    <!-- start-smooth-scrolling -->
+    <script src="/js/move-top.js"></script>
+    <script src="/js/easing.js"></script>
+    <script>
+      jQuery(document).ready(function ($) {
+        $(".scroll").click(function (event) {
+          event.preventDefault();
+
+          $("html,body").animate(
+            {
+              scrollTop: $(this.hash).offset().top,
+            },
+            1000
+          );
+        });
+      });
+    </script>
+    <!-- //end-smooth-scrolling -->
+
+    <!-- smooth-scrolling-of-move-up -->
+    <script>
+      $(document).ready(function () {
+        /*
+			var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+			};
+			*/
+        $().UItoTop({
+          easingType: "easeOutQuart",
+        });
+      });
+    </script>
+    <!-- //smooth-scrolling-of-move-up -->
+
+    <!-- imagezoom -->
+    <script src="/js/imagezoom.js"></script>
+    <!-- //imagezoom -->
+
+    <!-- FlexSlider -->
+    <script src="/js/jquery.flexslider.js"></script>
+    <script>
+      // Can also be used with $(document).ready()
+      $(window).load(function () {
+        $(".flexslider").flexslider({
+          animation: "slide",
+          controlNav: "thumbnails",
+        });
+      });
+    </script>
+    <!-- //FlexSlider-->
+
+    <!-- flexisel (for special offers) -->
+    <script src="/js/jquery.flexisel.js"></script>
+    <script>
+      $(window).load(function () {
+        $("#flexiselDemo1").flexisel({
+          visibleItems: 3,
+          animationSpeed: 1000,
+          autoPlay: true,
+          autoPlaySpeed: 3000,
+          pauseOnHover: true,
+          enableResponsiveBreakpoints: true,
+          responsiveBreakpoints: {
+            portrait: {
+              changePoint: 480,
+              visibleItems: 1,
+            },
+            landscape: {
+              changePoint: 640,
+              visibleItems: 2,
+            },
+            tablet: {
+              changePoint: 768,
+              visibleItems: 2,
+            },
+          },
+        });
+      });
+    </script>
+    <!-- //flexisel (for special offers) -->
+
+    <!-- for bootstrap working -->
+    <script src="/js/bootstrap.js"></script>
+    <!-- //for bootstrap working -->
+    <!-- //js-files -->
+  </body>
+</html>

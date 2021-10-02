@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>My Wishlist - ExchangeTU</title>
+	<!--/tags -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="website" />
+	<link rel="icon" href="images/favicon.png" type="image/png" sizes="18x12">
+	<script>
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
+
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+	</script>
+	<!--//tags -->
+	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="css/font-awesome.css" rel="stylesheet">
+	<!--pop-up-box-->
+	<link href="css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+	<!--//pop-up-box-->
+	<!-- price range -->
+	<link rel="stylesheet" type="text/css" href="css/jquery-ui1.css">
+	<!-- fonts -->
+	<link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800" rel="stylesheet">
+</head>
+
+<body>
+	<%- include('partials/navbar.ejs') %>
+
+	<!-- Modal1 -->
+	<div class="modal fade" id="myModal1" tabindex="-1" role="dialog">
+		<div class="modal-dialog">
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+				<div class="modal-body modal-body-sub_agile">
+					<div class="main-mailposi">
+						<span class="fa fa-envelope-o" aria-hidden="true"></span>
+					</div>
+					<div class="modal_body_left modal_body_left1">
+						<h3 class="agileinfo_sign">Sign In </h3>
+						<p>
+							Sign In now. Don't have an account?
+							<a href="#" data-toggle="modal" data-target="#myModal2">
+								Sign Up Now</a>
+						</p>
+						<form action="#" method="post">
+							<div class="styled-input agile-styled-input-top">
+								<input type="text" placeholder="User Name" name="Name" required="">
+							</div>
+							<div class="styled-input">
+								<input type="password" placeholder="Password" name="password" required="">
+							</div>
+							<input type="submit" value="Sign In">
+						</form>
+						<div class="clearfix"></div>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+			<!-- //Modal content-->
+		</div>
+	</div>
+	<!-- //Modal1 -->
+	<!-- //signin Model -->
+	<!-- signup Model -->
+	<!-- Modal2 -->
+	<div class="modal fade" id="myModal2" tabindex="-1" role="dialog">
+		<div class="modal-dialog">
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+				<div class="modal-body modal-body-sub_agile">
+					<div class="main-mailposi">
+						<span class="fa fa-envelope-o" aria-hidden="true"></span>
+					</div>
+					<div class="modal_body_left modal_body_left1">
+						<h3 class="agileinfo_sign">Sign Up</h3>
+						<p>
+							Let's set up your Account.
+						</p>
+						<form action="#" method="post">
+							<div class="styled-input agile-styled-input-top">
+								<input type="text" placeholder="Name" name="Name" required="">
+							</div>
+							<div class="styled-input">
+								<input type="email" placeholder="E-mail" name="Email" required="">
+							</div>
+							<div class="styled-input">
+								<input type="password" placeholder="Password" name="password" id="password1" required="">
+							</div>
+							<div class="styled-input">
+								<input type="password" placeholder="Confirm Password" name="Confirm Password" id="password2" required="">
+							</div>
+							<input type="submit" value="Sign Up">
+						</form>
+						<p>
+							<a href="#">By clicking register, I agree to your terms</a>
+						</p>
+					</div>
+				</div>
+			</div>
+			<!-- //Modal content-->
+		</div>
+	</div>
+	<!-- //Modal2 -->
+	<!-- page -->
+	<div class="services-breadcrumb">
+		<div class="agile_inner_breadcrumb">
+			<div class="container">
+				<ul class="w3_short">
+					<li>
+						<a href="/">Home</a>
+						<i>|</i>
+					</li>
+					<li>My Wishlist</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- //page -->
+	<!-- contact page -->
+	<div class="contact-w3l">
+		<div class="container">
+			<!-- tittle heading -->
+			<h3 class="tittle-w3l">My Wishlist
+				<span class="heading-style">
+					<i></i>
+					<i></i>
+					<i></i>
+				</span>
+			</h3>
+			<!-- //tittle heading -->
+			<!--products-->
+            <div class="product-sec1">
+				<!-- <h3 class="heading-tittle" id = "mattress_id">Mattress</h3> -->
+
+				<% for(var likeddeal of likedDeals ) { %>
+
+				<div class="col-md-4 product-men">
+				  <div class="men-pro-item simpleCart_shelfItem">
+					<div class="men-thumb-item">
+					  <img
+						src=<%= `/img/deals/${likeddeal.deal.titleImg}`%>
+						alt=""
+						width="200"
+						height="400"
+					  />
+					  <div class="men-cart-pro">
+						<div class="inner-men-cart-pro">
+						  <a href=<%= `/deal/${likeddeal.deal._id}/postedBy/${likeddeal.user._id}` %> class="link-product-add-cart"
+							>Quick View</a
+						  >
+						</div>
+					  </div>
+					  
+					</div>
+					<div class="item-info-product">
+					  <div class="info-product-price">
+						<span class="item_price">₹<%= likeddeal.deal.dealPrice %></span>
+						<del>₹<%= likeddeal.deal.mrp %></del>
+					  </div>
+					  <h4><a href=<%= `/deal/${likeddeal.deal._id}/postedBy/${likeddeal.deal.user}` %>><%= likeddeal.deal.dealName %></a></h4>
+					  <div
+						class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out"
+					  >
+						<br />
+						<form action="#" method="post">
+						  <fieldset>
+							<input type="hidden" name="cmd" value="_cart" />
+							<input type="hidden" name="add" value="1" />
+							<input type="hidden" name="business" value=" " />
+							<input
+							  type="hidden"
+							  name="item_name"
+							  value="Almonds, 100g"
+							/>
+							<input type="hidden" name="amount" value="149.00" />
+							<input
+							  type="hidden"
+							  name="discount_amount"
+							  value="1.00"
+							/>
+							<input
+							  type="hidden"
+							  name="currency_code"
+							  value="USD"
+							/>
+							<input type="hidden" name="return" value=" " />
+							<input type="hidden" name="cancel_return" value=" " />
+						  </fieldset>
+						</form>
+					  </div>
+					</div>
+				  </div>
+				</div>
+				<% } %>
+				<!-- <div class="col-md-4 product-men">
+				  <div class="men-pro-item simpleCart_shelfItem">
+					<div class="men-thumb-item">
+					  <img
+						src="images/foam mattress.jpg"
+						alt=""
+						width="200"
+						height="400"
+					  />
+					  <div class="men-cart-pro">
+						<div class="inner-men-cart-pro">
+						  <a href="/single" class="link-product-add-cart"
+							>Quick View</a
+						  >
+						</div>
+					  </div>
+					  
+					</div>
+					<div class="item-info-product">
+					  <div class="info-product-price">
+						<span class="item_price">Rs. 300</span>
+						<del>Rs. 600</del>
+					  </div>
+					  <h4>
+						<a href="/single">Thick Foam Mattress</a>
+					  </h4>
+					  <div
+						class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out"
+					  >
+						<br />
+						<form action="#" method="post">
+						  <fieldset>
+							<input type="hidden" name="cmd" value="_cart" />
+							<input type="hidden" name="add" value="1" />
+							<input type="hidden" name="business" value=" " />
+							<input
+							  type="hidden"
+							  name="item_name"
+							  value="Cashew Nuts, 100g"
+							/>
+							<input type="hidden" name="amount" value="200.00" />
+							<input
+							  type="hidden"
+							  name="discount_amount"
+							  value="1.00"
+							/>
+							<input
+							  type="hidden"
+							  name="currency_code"
+							  value="USD"
+							/>
+							<input type="hidden" name="return" value=" " />
+							<input type="hidden" name="cancel_return" value=" " />
+						  </fieldset>
+						</form>
+					  </div>
+					</div>
+				  </div>
+				</div> -->
+				<!-- <div class="col-md-4 product-men">
+				  <div class="men-pro-item simpleCart_shelfItem">
+					<div class="men-thumb-item">
+					  <img
+						src="images/cottonmattress.jpg"
+						alt=""
+						width="200"
+						height="400"
+					  />
+					  <div class="men-cart-pro">
+						<div class="inner-men-cart-pro">
+						  <a href="/single" class="link-product-add-cart"
+							>Quick View</a
+						  >
+						</div>
+					  </div>
+					  
+					</div>
+					<div class="item-info-product">
+					  <div class="info-product-price">
+						<span class="item_price">Rs. 200</span>
+						<del>Rs. 500</del>
+					  </div>
+					  <h4>
+						<a href="/single">Cotton Mattress</a>
+					  </h4>
+					  <div
+						class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out"
+					  >
+						<br />
+						<form action="#" method="post">
+						  <fieldset>
+							<input type="hidden" name="cmd" value="_cart" />
+							<input type="hidden" name="add" value="1" />
+							<input type="hidden" name="business" value=" " />
+							<input
+							  type="hidden"
+							  name="item_name"
+							  value="Pista, 250g"
+							/>
+							<input type="hidden" name="amount" value="520.99" />
+							<input
+							  type="hidden"
+							  name="discount_amount"
+							  value="1.00"
+							/>
+							<input
+							  type="hidden"
+							  name="currency_code"
+							  value="USD"
+							/>
+							<input type="hidden" name="return" value=" " />
+							<input type="hidden" name="cancel_return" value=" " />
+						  </fieldset>
+						</form>
+					  </div>
+					</div>
+				  </div>
+				</div> -->
+				<div class="clearfix"></div>
+			  </div>
+			<!--//products-->
+			
+		</div>
+	</div>
+	
+	
+	<!-- js-files -->
+	<!-- jquery -->
+	<script src="js/jquery-2.1.4.min.js"></script>
+	<!-- //jquery -->
+
+	<!-- popup modal (for signin & signup)-->
+	<script src="js/jquery.magnific-popup.js"></script>
+	<script>
+		$(document).ready(function () {
+			$('.popup-with-zoom-anim').magnificPopup({
+				type: 'inline',
+				fixedContentPos: false,
+				fixedBgPos: true,
+				overflowY: 'auto',
+				closeBtnInside: true,
+				preloader: false,
+				midClick: true,
+				removalDelay: 300,
+				mainClass: 'my-mfp-zoom-in'
+			});
+
+		});
+	</script>
+	<!-- Large modal -->
+	<!-- <script>
+		$('#').modal('show');
+	</script> -->
+	<!-- //popup modal (for signin & signup)-->
+
+	<!-- password-script -->
+	<script>
+		window.onload = function () {
+			document.getElementById("password1").onchange = validatePassword;
+			document.getElementById("password2").onchange = validatePassword;
+		}
+
+		function validatePassword() {
+			var pass2 = document.getElementById("password2").value;
+			var pass1 = document.getElementById("password1").value;
+			if (pass1 != pass2)
+				document.getElementById("password2").setCustomValidity("Passwords Don't Match");
+			else
+				document.getElementById("password2").setCustomValidity('');
+			//empty string means no validation error
+		}
+	</script>
+	<!-- //password-script -->
+
+	<!-- smoothscroll -->
+	<script src="js/SmoothScroll.min.js"></script>
+	<!-- //smoothscroll -->
+
+	<!-- start-smooth-scrolling -->
+	<script src="js/move-top.js"></script>
+	<script src="js/easing.js"></script>
+	<script>
+		jQuery(document).ready(function ($) {
+			$(".scroll").click(function (event) {
+				event.preventDefault();
+
+				$('html,body').animate({
+					scrollTop: $(this.hash).offset().top
+				}, 1000);
+			});
+		});
+	</script>
+	<!-- //end-smooth-scrolling -->
+
+	<!-- smooth-scrolling-of-move-up -->
+	<script>
+		$(document).ready(function () {
+			/*
+			var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+			};
+			*/
+			$().UItoTop({
+				easingType: 'easeOutQuart'
+			});
+
+		});
+	</script>
+	<!-- //smooth-scrolling-of-move-up -->
+
+	<!-- for bootstrap working -->
+	<script src="js/bootstrap.js"></script>
+	<!-- //for bootstrap working -->
+	<!-- //js-files -->
+
+</body>
+
+</html>
