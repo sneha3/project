@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sushantmahajan85/exchangeTU.git"
+    "url": "git+https://github.com/sneha3/project"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/sushantmahajan85/exchangeTU/issues"
+    "url": "https://github.com/sneha3/project"
   },
-  "homepage": "https://github.com/sushantmahajan85/exchangeTU",
+  "homepage": "https://github.com/sneha3/project",
   "dependencies": {
     "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
